@@ -17,7 +17,6 @@ public class SimpleTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = false;
     }
@@ -26,7 +25,7 @@ public class SimpleTest {
             "Сапоги", "Куртки", "Подарки"
     })
     @ParameterizedTest(name = "Тест {0}")
-    @DisplayName("Тест на поиск Я.Маркет")
+    @DisplayName("Тест на поиск в Авито")
     public void practiceFormTest(String search) {
         open("https://www.avito.ru/");
         $("[data-marker='search-form/suggest/input']").setValue(search).pressEnter();
@@ -52,7 +51,7 @@ public class SimpleTest {
             "Подарки, «Подарки»: объявления в Краснодаре"
     })
     @ParameterizedTest(name = "Тест {0}")
-    @DisplayName("Тест на поиск Я.Маркет")
+    @DisplayName("Тест на поиск в Авито")
     public void practiceFormTestCsv(String search, String expectedText) {
         open("https://www.avito.ru/");
         $("[data-marker='search-form/suggest/input']").setValue(search).pressEnter();
@@ -61,7 +60,7 @@ public class SimpleTest {
 
     @CsvFileSource(resources = "/test_data/searchFileAvito.csv")
     @ParameterizedTest(name = "Тест {0}")
-    @DisplayName("Тест на поиск Я.Маркет")
+    @DisplayName("Тест на поиск в Авито")
     public void practiceFormTestCsvFile(String search, String expectedText) {
         open("https://www.avito.ru/");
         $("[data-marker='search-form/suggest/input']").setValue(search).pressEnter();
